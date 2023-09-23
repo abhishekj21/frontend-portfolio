@@ -1,4 +1,8 @@
 const boxContainer = document.querySelector(".boxContainer");
+const saluteTextContainer = document.querySelector(".saluteTextContainer");
+const saluteImgContainer = document.querySelector(".saluteImgContainer");
+const AuthorName = document.querySelector(".name");
+const jobTitleContainer = document.querySelectorAll(".jobTitleContainer");
 
 for (let i = 0; i < 365; i++) {
   const list = [
@@ -20,3 +24,14 @@ for (let i = 0; i < 365; i++) {
   el.classList = list.includes(i) ? "box active" : "box";
   boxContainer.appendChild(el);
 }
+
+window.addEventListener("scroll", () => {
+  let offsetY = window.scrollY;
+  saluteTextContainer.style.transform = `translateX(${-offsetY * 0.1}px)`;
+  saluteImgContainer.style.transform = `translate(${offsetY * 0.4}px, ${
+    offsetY * 0.7
+  }px)`;
+  AuthorName.style.transform = `translateX(${offsetY * 0.1}px)`;
+  jobTitleContainer[0].style.backgroundPositionY = `${offsetY * 0.5}px`;
+  jobTitleContainer[1].style.backgroundPositionX = `${-offsetY * 0.5}px`;
+});
