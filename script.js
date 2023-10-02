@@ -45,3 +45,16 @@ window.addEventListener("scroll", () => {
   laptop.style.transform = `translateX(calc(600vh - ${offsetY}px))`;
   phones[1].style.transform = `translateX(calc(750vh - ${offsetY}px))`;
 });
+
+function changeSizeOfLaptopImage() {
+  // const laptopImage = document.getElementById("laptop__image");
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 460 && windowWidth <= 622) {
+    laptop.style.marginLeft = 40 + "px";
+    laptop.style.marginRight = 40 + "px";
+  }
+}
+
+window.addEventListener("resize", changeSizeOfLaptopImage);
+changeSizeOfLaptopImage();
