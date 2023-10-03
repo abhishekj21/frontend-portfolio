@@ -307,8 +307,10 @@
 }
 .img__1-para {
   color: white;
+  font-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 1px solid red;
 }
