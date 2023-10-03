@@ -46,15 +46,42 @@ window.addEventListener("scroll", () => {
   phones[1].style.transform = `translateX(calc(750vh - ${offsetY}px))`;
 });
 
-function changeSizeOfLaptopImage() {
-  // const laptopImage = document.getElementById("laptop__image");
-  const windowWidth = window.innerWidth;
+const slides = document.querySelectorAll(".slide");
+const dotContainer = document.querySelector(".dots");
+const slider = document.querySelector(".slider");
+slider.style.transform = "scale(0.5)";
+let curSlide = 0;
+const maxSlide = slides.length;
 
-  if (windowWidth >= 460 && windowWidth <= 622) {
-    laptop.style.marginLeft = 40 + "px";
-    laptop.style.marginRight = 40 + "px";
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+createDots();
+
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
+};
+goToSlide(0);
+
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
   }
-}
+  goToSlide(curSlide);
+};
 
-window.addEventListener("resize", changeSizeOfLaptopImage);
-changeSizeOfLaptopImage();
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+  }
+});
