@@ -7,6 +7,8 @@ const jobTitle = document.querySelectorAll(".jobTitle");
 const phones = document.querySelectorAll(".phone");
 const laptop = document.querySelector(".laptop");
 const projectsTitle = document.querySelector(".projectsTitle");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
 
 for (let i = 0; i < 365; i++) {
   const list = [
@@ -78,6 +80,18 @@ const nextSlide = function () {
   }
   goToSlide(curSlide);
 };
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+  goToSlide(curSlide);
+};
+
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
 
 dotContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("dots__dot")) {
