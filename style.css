@@ -215,6 +215,7 @@
   .projects {
     padding: 0 30px;
     text-align: center;
+    gap: 10px;
   }
   .project {
     flex-direction: column;
@@ -223,16 +224,40 @@
   .project:nth-child(2n) {
     flex-direction: column;
   }
+  /* ************************************** */
+  .laptop img {
+    width: 300px;
+  }
+  .laptopScreen {
+    width: 225px;
+    height: 140px;
+    border-radius: 4px;
+    top: 10px;
+    left: 185px;
+    overflow: scroll;
+  }
+
+  /* .laptopApp {
+    width: fit-content;
+  } */
+  /* ************************************** */
   .phone,
   .laptop {
     transform: none !important;
   }
-  .githubChart {
-    display: none;
+  .githubContainer {
+    /* display: flex; */
+    justify-content: unset;
+    row-gap: 60px;
+    height: 50vh;
   }
   .githubTitle {
     text-align: center;
     font-size: 10vw;
+    margin-top: 100px;
+  }
+  .githubChart {
+    display: none;
   }
   .githubSm {
     display: flex;
